@@ -20,21 +20,32 @@ let usedCard = ref();
 //   cardData: data,
 // });
 // Initialize newCard array
-const newCard = ref({ value: [] });
+const newCard = ref([]);
 // Check if 'card' exists in localStorage and retrieve its value
-var storedCard = localStorage.getItem("card");
+let storedCard = localStorage.getItem("card");
 if (storedCard) {
+  console.log('STOREDCARD',storedCard)
   newCard.value = JSON.parse(storedCard);
-  // console.log('NEREWEWE',newCard.value.value)
+  // console.log('ch',newCard.value.value)
+}
+else{
+  alert("start your game")
 }
 
 let str = ref([]);
-const localData = ref([]);
-const parseData = ref([]);
+// const localData = ref([]);
+// const parseData = ref([]);
 function toggleActiveState(e) {
   // console.log("Hello", e.target);
   usedCard.value = e.target.innerText;
-  newCard.value.value.push(usedCard.value);
+  console.log(usedCard.value)
+  if (usedCard.value !== null) {
+    if (newCard.value === null) {
+      newCard.value = [];
+    }
+  newCard.value.push(usedCard.value);
+}
+  // newCard.value.push(usedCard.value);
   str = JSON.stringify(newCard.value);
   console.log("STR",str)
   localStorage.setItem("card", str);
@@ -43,9 +54,9 @@ function toggleActiveState(e) {
 }
 // watch(newCard, (newValue, oldValue) => {});
 onMounted(() => {
-  localData.value = localStorage.getItem("card");
-  parseData.value = JSON.parse(localData.value);
-  console.log("checkOnMounted", parseData.value.value);
+  storedCard= localStorage.getItem("card");
+  newCard.value = JSON.parse(storedCard);
+  // console.log("checkOnMounted", parseData.value.value);
 });
 
 </script>
@@ -54,7 +65,7 @@ onMounted(() => {
     <!-- Display Used Card -->
     <div class="flex mt-2">
       <div
-        v-for="(item, index) in parseData.value"
+        v-for="(item, index) in newCard"
         :key="index"
         class="flex rounded w-24 items-center justify-center h-20 bg-red-500 mx-1 shadow-md"
       >
