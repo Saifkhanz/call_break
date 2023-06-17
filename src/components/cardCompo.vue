@@ -120,53 +120,9 @@ onMounted(() => {
   </div>
 </template>
 <style scoped>
-.text-with-line-through {
-  text-decoration-line: line-through;
-  /* other text decoration properties you may want to use */
-  text-decoration-color: red;
-  /* text-decoration-style: wavy; */
-  text-decoration-thickness: 2px;
-}
-.text-with-slanted-line-through {
-  position: relative;
-  display: inline-block;
-}
-.text-with-slanted-line-through::after {
-  content: "";
-  display: block;
-  position: absolute;
-  bottom: 0;
-  left: -0%;
-  width: 109%;
-  height: 1px;
-  background-color: black;
-  transform: rotate(-23deg);
-  transform-origin: bottom left;
-}
-.check {
-  background-color: aliceblue !important  ;
-}
-#div1,
-#div2 {
-  float: left;
-  width: 100px;
-  height: 85px;
-  margin: 10px;
-  padding: 10px;
-  border: 1px solid black;
-}
 .icons {
   background-color: rgba(109, 21, 21, 0.719);
-  /* background-color: firebrick; */
   background-image: url("../assets/cross1.png");
-  /* z-index: 9999999; */
 }
-/* .card {
-  position: relative;
-  background-color: red;
-  z-index: 1;
-} */
-/* .temp{
-  z-index:0;
-} */
+
 </style>
