@@ -25,7 +25,7 @@ const newCard = ref({ value: [] });
 var storedCard = localStorage.getItem("card");
 if (storedCard) {
   newCard.value = JSON.parse(storedCard);
-  console.log('NEREWEWE',newCard.value.value)
+  // console.log('NEREWEWE',newCard.value.value)
 }
 
 let str = ref([]);
@@ -61,27 +61,7 @@ onMounted(() => {
         <div class="text-white text-lg text-center">{{ item }}</div>
       </div>
     </div>
-    <div class="flex">
-      <div
-        class="flex rounded w-24 items-center justify-center h-20 bg-pink-500 my-2 mx-1 shadow-md"
-      >
-        <div class="text-white text-lg text-center">{{ item }}</div>
-      </div>
-    </div>
-    <div class="flex">
-      <div
-        class="flex rounded w-24 items-center justify-center h-20 bg-black my-2 mx-1 shadow-md"
-      >
-        <div class="text-white text-lg text-center">{{ item }}</div>
-      </div>
-    </div>
-    <div class="flex">
-      <div
-        class="flex rounded w-24 items-center justify-center h-20 bg-blue-500 my-2 mx-1 shadow-md"
-      >
-        <div class="text-white text-lg text-center">{{ item }}</div>
-      </div>
-    </div>
+    
     <!-- display All Card -->
     <div class="container mx-auto px-4 w-2/4 pt-6">
       <table class="table-auto w-full border-collapse border">
@@ -109,11 +89,6 @@ onMounted(() => {
               ></i>
             </th>
             <th class="p-2">
-              <!-- <i
-                class="text-center fa-solid fa-club fa-fade fa-2xl"
-                style="color: #0c0f12"
-              ></i>
-              club -->
               <img src="../assets/realclub.png" alt="" class="h-12 mx-auto">
             </th>
           </tr>
@@ -123,19 +98,7 @@ onMounted(() => {
           <tr v-for="(item, index) in cards" :key="index">
             <!-- inner loop start -->
             <td v-for="n in 4" :key="n" class="p-2 text-center">
-              <!-- <button
-                @click="isActive = !isActive"
-                :class="isActive ? 'text-with-slanted-line-through' : ''"
-                class="bg-gray-400 rounded-sm w-32 h-14"
-              >
-                {{ item }}
-              </button> -->
-              <!-- this below code is important  -->
-              <!-- <button 
-                @click="toggleActiveState($event)"
-                :class="isActive ? ['text-with-slanted-line-through','check'] : ''"
-                class="shadow-lg rounded-lg drop-shadow-lg w-32 h-14 border-2 border-purple-100	 hover:bg-slate-700 bg-cyan-900 font-sans hover:font-serif"
-              > -->
+          
               <button
                 @click="toggleActiveState($event)"
                 :class="[
