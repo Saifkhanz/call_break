@@ -59,23 +59,23 @@ onMounted(() => {
 });
 </script>
 <template>
-  <div class="parent">
+  <div class="parent container mx-auto ">
     <!-- Display Used Card -->
-    <div class="flex flex-wrap mt-2">
+    <div class="flex flex-wrap mt-2 ">
       <div
         v-for="(item, index) in newCard"
         :key="index"
-        class="flex rounded md:w-36 w-20 sm:flex-none items-center justify-center h-20 bg-red-500 mx-1 my-1 shadow-md"
+        class="flex rounded md:w-24 w-16  items-center justify-center h-16 bg-gray-400 mx-1 my-1 shadow-md"
       >
         <div class="text-white text-lg text-center">{{ item }}</div>
       </div>
     </div>
 
     <!-- display All Card -->
-    <div class="container md:mx-auto w-2/4 pt-6">
-      <table class="table-auto w-full border-collapse border">
+    <div class="pt-6 flex justify-center">
+      <table class="table-auto">
         <thead>
-          <tr class="border-b border-gray-400">
+          <tr >
             <th class="p-2">
               <i
                 class="fa-sharp fa-solid fa-heart fa-2xl"
@@ -116,7 +116,7 @@ onMounted(() => {
                 :class="[
                   isActive ? 'icons bg-stone-200  pointer-events-none' : '',
                 ]"
-                class="bg-center bg-no-repeat shadow-lg rounded-lg drop-shadow-lg w-32 sm:w-16 h-16 border-2 border-purple-100 hover:bg-slate-700 bg-cyan-900 font-sans hover:font-serif"
+                class="bg-center bg-no-repeat shadow-lg rounded-lg drop-shadow-lg md:w-32 w-16 h-16 border-2 border-purple-100 hover:bg-slate-700 bg-cyan-900 font-sans hover:font-serif"
               >
                 <span class="text-white text-lg">
                   {{ item }}
@@ -136,4 +136,5 @@ onMounted(() => {
   background-color: rgba(109, 21, 21, 0.719);
   background-image: url("../assets/cross1.png");
 }
+
 </style>

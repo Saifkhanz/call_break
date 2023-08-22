@@ -1,13 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
-    <script src="https://kit.fontawesome.com/1fdcaaf62f.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/1fdcaaf62f.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
-  <body>
+  <body class="image relative bg-cover bg-center bg-opacity-25">
+    <style>
+      body {
+        position: relative;
+        background-image: url("src/assets/107609-ONC6LN-514.jpg");
+        background-color: #f0f0f0;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        /* Apply the overlay */
+        /* &::before { */
+          /* content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.5); */
+           /* Adjust opacity here */
+        /* } */
+      }
+    </style>
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
   </body>
