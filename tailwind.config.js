@@ -8,6 +8,9 @@ module.exports = {
     // container:{
     //   center:true
     // }
+    screens: {
+      'xs': '240px', // Add your custom breakpoint
+    },
   },
   plugins: [],
 }

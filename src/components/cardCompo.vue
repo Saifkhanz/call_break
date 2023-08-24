@@ -42,7 +42,7 @@ function toggleActiveState(e) {
     if (newCard.value === null) {
       newCard.value = [];
     }
-    newCard.value.push(usedCard.value);
+    // newCard.value.push(usedCard.value);
   }
   // newCard.value.push(usedCard.value);
   str = JSON.stringify(newCard.value);
@@ -61,7 +61,7 @@ onMounted(() => {
 <template>
   <div class="parent container mx-auto ">
     <!-- Display Used Card -->
-    <div class="flex flex-wrap mt-2 ">
+    <!-- <div class="flex flex-wrap mt-2 ">
       <div
         v-for="(item, index) in newCard"
         :key="index"
@@ -69,21 +69,21 @@ onMounted(() => {
       >
         <div class="text-white text-lg text-center">{{ item }}</div>
       </div>
-    </div>
+    </div> -->
 
     <!-- display All Card -->
-    <div class="pt-6 flex justify-center">
+    <div class="flex justify-center">
       <table class="table-auto">
         <thead>
           <tr >
-            <th class="p-2">
+            <th class="p-2 xs:p-1">
               <i
-                class="fa-sharp fa-solid fa-heart fa-2xl"
+                class="fa-sharp fa-solid fa-heart fa-2xl xs:text-xl"
                 style="color: #dc0909"
               >
               </i>
             </th>
-            <th class="p-2">
+            <th class="p-2 xs:p-1">
               <!-- <i
                 class="fa-thin fa-spade fa-2xl"
                 style="color: #090c10"
@@ -92,17 +92,17 @@ onMounted(() => {
               <img
                 src="../assets/ace-of-spades.png"
                 alt=""
-                class="h-10 mx-auto"
+                class="h-10 mx-auto xs:h-5"
               />
             </th>
-            <th class="p-2">
+            <th class="p-2 xs:p-1">
               <i
-                class="text-center fa-sharp fa-solid fa-diamond fa-2xl"
+                class="text-center fa-sharp fa-solid fa-diamond fa-2xl xs:text-xl"
                 style="color: #12161c"
               ></i>
             </th>
-            <th class="p-2">
-              <img src="../assets/realclub.png" alt="" class="h-12 mx-auto" />
+            <th class="p-2 xs:p-1">
+              <img src="../assets/realclub.png" alt="" class="h-12 xs:h-6 mx-auto" />
             </th>
           </tr>
         </thead>
@@ -110,15 +110,15 @@ onMounted(() => {
           <!-- outer loop start -->
           <tr v-for="(item, index) in cards" :key="index">
             <!-- inner loop start -->
-            <td v-for="n in 4" :key="n" class="p-2 text-center">
+            <td v-for="n in 4" :key="n" class="p-2 xs:p-1 text-center">
               <button
                 @click="toggleActiveState($event)"
                 :class="[
                   isActive ? 'icons bg-stone-200  pointer-events-none' : '',
                 ]"
-                class="bg-center bg-no-repeat shadow-lg rounded-lg drop-shadow-lg md:w-32 w-16 h-16 border-2 border-purple-100 hover:bg-slate-700 bg-cyan-900 font-sans hover:font-serif"
+                class="bg-center bg-no-repeat shadow-lg rounded-lg drop-shadow-lg md:w-32 xs:w-10 h-10 border-2 border-purple-100 hover:bg-slate-700 bg-cyan-900 font-sans hover:font-serif"
               >
-                <span class="text-white text-lg">
+                <span class="text-white text-lg xs:text-xs">
                   {{ item }}
                 </span>
               </button>
@@ -133,7 +133,7 @@ onMounted(() => {
 </template>
 <style scoped>
 .icons {
-  background-color: rgba(109, 21, 21, 0.719);
+  /* background-color: rgba(109, 21, 21, 0.719); */
   background-image: url("../assets/cross1.png");
 }
 
