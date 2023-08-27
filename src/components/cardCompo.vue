@@ -2,6 +2,7 @@
 import { reactive, ref, onMounted, watch } from "vue";
 const isActive = ref(false);
 let cards = ref(["A", "K", "Q", "J", 10, 9, 8, 7, 6, 5, 4, 3, 2]);
+let buckets= ref([[], [], [], []]);
 let usedCard = ref();
 // const Heart = reactive({
 //   isActive: isActive,
@@ -49,7 +50,7 @@ function toggleActiveState(e) {
   console.log("STR", str);
   localStorage.setItem("card", str);
   e.target.classList.toggle("icons");
-  e.target.style.pointerEvents = "none";
+  // e.target.style.pointerEvents = "none";
 }
 // watch(newCard, (newValue, oldValue) => {});
 onMounted(() => {
@@ -78,7 +79,7 @@ onMounted(() => {
           <tr >
             <th class="p-2 xs:p-1">
               <i
-                class="fa-sharp fa-solid fa-heart fa-2xl xs:text-xl"
+                class="fa-sharp fa-solid fa-heart fa-2xl md:text-4xl xs:text-xl"
                 style="color: #dc0909"
               >
               </i>
@@ -92,17 +93,17 @@ onMounted(() => {
               <img
                 src="../assets/ace-of-spades.png"
                 alt=""
-                class="h-10 mx-auto xs:h-5"
+                class="md:h-10 mx-auto xs:h-5"
               />
             </th>
             <th class="p-2 xs:p-1">
               <i
-                class="text-center fa-sharp fa-solid fa-diamond fa-2xl xs:text-xl"
+                class="text-center fa-sharp fa-solid fa-diamond fa-2xl md:text-4xl  xs:text-xl"
                 style="color: #12161c"
               ></i>
             </th>
             <th class="p-2 xs:p-1">
-              <img src="../assets/realclub.png" alt="" class="h-12 xs:h-6 mx-auto" />
+              <img src="../assets/realclub.png" alt="" class="md:h-12 xs:h-6 mx-auto" />
             </th>
           </tr>
         </thead>
@@ -111,14 +112,26 @@ onMounted(() => {
           <tr v-for="(item, index) in cards" :key="index">
             <!-- inner loop start -->
             <td v-for="n in 4" :key="n" class="p-2 xs:p-1 text-center">
-              <button
-                @click="toggleActiveState($event)"
-                :class="[
-                  isActive ? 'icons bg-stone-200  pointer-events-none' : '',
-                ]"
+              <!-- <draggable v-model="buckets[n - 1]" :options="{ group: 'cards' }">
+                <div
+                v-for="card in buckets[n - 1]"
+                :key="card.id"
                 class="bg-center bg-no-repeat shadow-lg rounded-lg drop-shadow-lg md:w-32 xs:w-10 h-10 border-2 border-purple-100 hover:bg-slate-700 bg-cyan-900 font-sans hover:font-serif"
               >
                 <span class="text-white text-lg xs:text-xs">
+                  {{ card.value }}
+                </span>
+              </div>
+            </draggable> -->
+              
+            <button
+                @click="toggleActiveState($event)"
+                :class="[
+                  isActive ? 'icons bg-stone-200' : '',
+                ]"
+                class="bg-center bg-no-repeat shadow-lg rounded-lg drop-shadow-lg md:w-24 md:h-14 xs:w-10 xs:h-10 border-2 border-purple-100 hover:bg-slate-700 bg-cyan-900 font-sans hover:font-serif"
+              >
+                <span class=" text-white md:text-xl xs:text-base">
                   {{ item }}
                 </span>
               </button>
@@ -134,6 +147,7 @@ onMounted(() => {
 <style scoped>
 .icons {
   /* background-color: rgba(109, 21, 21, 0.719); */
+  background-size: contain;
   background-image: url("../assets/cross1.png");
 }
 
